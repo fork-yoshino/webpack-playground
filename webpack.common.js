@@ -50,7 +50,7 @@ module.exports = {
   entry: entries,
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: './js/[name].bundle.js',
+    filename: './js/[name].js',
     clean: true,
   },
   module: {
@@ -62,6 +62,7 @@ module.exports = {
       },
       {
         test: /\.(sa|sc|c)ss$/i,
+        // 配列の下から上の順に処理される
         use: [
           // cssファイルとして別ファイルに出力する
           MiniCssExtractPlugin.loader,
@@ -108,8 +109,17 @@ module.exports = {
     ...buildHtmlWebpackPlugins(entries, './src/pages'),
   ],
   optimization: {
+    // 複数エントリ間の共通モジュール（_common.tsなど）を自動で分離する。別チャンクとして1つにまとめられ、重複読み込みを防ぐ
     splitChunks: {
       chunks: 'all',
+      // node_modulesのパッケージを別チャンク(vendors)に分離し、長期キャッシュを効かせる
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
     },
   },
   resolve: {
