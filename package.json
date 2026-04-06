@@ -1,12 +1,10 @@
 {
-  "name": "app",
+  "name": "webpack-playground",
   "version": "1.0.0",
   "private": true,
-  "main": "dist/js/index.js",
-  "license": "MIT",
+  "license": "UNLICENSED",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack serve --config webpack.dev.js",
+"dev": "webpack serve --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "lint": "eslint 'src/**/*.{js,ts}'",
     "lint:fix": "eslint --fix 'src/**/*.{js,ts}'",
