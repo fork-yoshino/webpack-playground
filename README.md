@@ -528,7 +528,7 @@ plugins: [
   </head>
   <body>
     <h1>index.html</h1>
-    <img src="../assets/dell-laptop.jpg" alt="Dell-Laptop" width="600" height="400" />
+    <img src="../assets/images/dell-laptop.jpg" alt="Dell-Laptop" width="600" height="400" />
     <!-- ↑ html-loader が画像パスを解決し、asset/resource で dist/assets/ に出力される -->
     <!-- ↑ <script> タグは HtmlWebpackPlugin が inject: 'body' で自動挿入する -->
   </body>
